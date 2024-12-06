@@ -13,9 +13,6 @@ npx hardhat lz:deploy
 npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts
 
 ### mint
-
-
-### x-send
 // npx hardhat --network avalanche-testnet run scripts/mint.ts
 // npx hardhat --network sepolia-testnet run scripts/mint.ts
 
