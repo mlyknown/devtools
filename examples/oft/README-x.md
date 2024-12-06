@@ -16,3 +16,15 @@ npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts
 
 
 ### x-send
+// npx hardhat --network avalanche-testnet run scripts/mint.ts
+// npx hardhat --network sepolia-testnet run scripts/mint.ts
+
+默认mint 100 token
+
+### send
+// npx hardhat --network avalanche-testnet run scripts/send.ts
+// npx hardhat --network sepolia-testnet run scripts/send.ts
+
+
+代码里const TO_ADDR = "0xa9D15c1c8B264c9082483BBf39Dafb2B844CCbA0"
+为跨链目标地址，默认为1个token
