@@ -1,4 +1,5 @@
 import { EndpointId } from '@layerzerolabs/lz-definitions'
+import { ExecutorOptionType } from '@layerzerolabs/lz-v2-utilities'
 
 import type { OAppOmniGraphHardhat, OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
 
@@ -31,30 +32,30 @@ const config: OAppOmniGraphHardhat = {
             // You need to either enable these enforcedOptions or pass in extraOptions when calling send().
             // Having neither will cause a revert when calling send().
             // We suggest performing additional profiling to ensure they are correct for your use case.
-            // config: {
-            //     enforcedOptions: [
-            //         {
-            //             msgType: 1,
-            //             optionType: ExecutorOptionType.LZ_RECEIVE,
-            //             gas: 200000,
-            //             value: 2500000,
-            //         },
-            //         {
-            //             msgType: 2,
-            //             optionType: ExecutorOptionType.LZ_RECEIVE,
-            //             gas: 200000,
-            //             value: 2500000,
-            //         },
-            //         {
-            //             // Solana options use (gas == compute units, value == lamports)
-            //             msgType: 2,
-            //             optionType: ExecutorOptionType.COMPOSE,
-            //             index: 0,
-            //             gas: 0,
-            //             value: 0,
-            //         },
-            //     ],
-            // },
+            config: {
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 200000,
+                        value: 2500000,
+                    },
+                    // {
+                    //     msgType: 2,
+                    //     optionType: ExecutorOptionType.LZ_RECEIVE,
+                    //     gas: 200000,
+                    //     value: 2500000,
+                    // },
+                    // {
+                    //     // Solana options use (gas == compute units, value == lamports)
+                    //     msgType: 2,
+                    //     optionType: ExecutorOptionType.COMPOSE,
+                    //     index: 0,
+                    //     gas: 0,
+                    //     value: 0,
+                    // },
+                ],
+            },
         },
         {
             from: solanaContract,
@@ -63,7 +64,7 @@ const config: OAppOmniGraphHardhat = {
             // You need to either enable these enforcedOptions or pass in extraOptions when calling send().
             // Having neither will cause a revert when calling send().
             // We suggest performing additional profiling to ensure they are correct for your use case.
-            // config: {
+            config: {
             //     sendLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
             //     receiveLibraryConfig: {
             //         receiveLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
@@ -116,19 +117,19 @@ const config: OAppOmniGraphHardhat = {
             //             optionalDVNThreshold: 0,
             //         },
             //     },
-            //     enforcedOptions: [
-            //         {
-            //             msgType: 1,
-            //             optionType: ExecutorOptionType.LZ_RECEIVE,
-            //             gas: 200000,
-            //         },
-            //         {
-            //             msgType: 2,
-            //             optionType: ExecutorOptionType.LZ_RECEIVE,
-            //             gas: 200000,
-            //         },
-            //     ],
-            // },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 200000,
+                    },
+                    // {
+                    //     msgType: 2,
+                    //     optionType: ExecutorOptionType.LZ_RECEIVE,
+                    //     gas: 200000,
+                    // },
+                ],
+            },
         },
     ],
 }
