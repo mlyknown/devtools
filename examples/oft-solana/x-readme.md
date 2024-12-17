@@ -21,3 +21,6 @@ npx hardhat lz:oft:solana:send --amount 1000 --from-eid 40168 --to 0xa9D15c1c8B2
 
 
 spl-token mint CY76n6QWp6xyNshr3SWxF3eJ8M6s4dR3r1EJNHoFfSuv 10000000000 --multisig-signer ~/.config/solana/id.json --owner 9R9vpi7xSERgqVTapjJFmXE7gd1YGUAmvv1FqA6RFSsU
+
+
+pnpm hardhat lz:oft:solana:setauthority --eid 40168 --mint CY76n6QWp6xyNshr3SWxF3eJ8M6s4dR3r1EJNHoFfSuv --program-id GfzM8nEV9MGNB8iLj8TxuYaTesrqRA8LERCFV7ggxxwv --escrow F9MMgML9CCQbC63BjDKubqG5tr4CKrHczSgxmewvvvxQ --additional-minters DBZp8TwBom8MiLRCgDTNcQfb9oWBwXgPsfTc1KuWLj1W
