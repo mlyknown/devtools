@@ -115,11 +115,11 @@ task('lz:oft:solana:create', 'Mints new SPL Token and creates new OFT Store acco
     .addParam('eid', 'Solana mainnet or testnet', undefined, devtoolsTypes.eid)
     .addOptionalParam('localDecimals', 'Token local decimals (default=9)', DEFAULT_LOCAL_DECIMALS, devtoolsTypes.int)
     .addOptionalParam('sharedDecimals', 'OFT shared decimals (default=6)', DEFAULT_SHARED_DECIMALS, devtoolsTypes.int)
-    .addParam('name', 'Token Name', 'MockOFT', devtoolsTypes.string)
+    .addParam('name', 'Token Name', 'SGB-name', devtoolsTypes.string)
     .addParam('mint', 'The Token mint public key (used for MABA only)', '', devtoolsTypes.string)
     .addParam('programId', 'The OFT Program id')
     .addParam('sellerFeeBasisPoints', 'Seller fee basis points', 0, devtoolsTypes.int)
-    .addParam('symbol', 'Token Symbol', 'MOFT', devtoolsTypes.string)
+    .addParam('symbol', 'Token Symbol', 'SGB', devtoolsTypes.string)
     .addParam('tokenMetadataIsMutable', 'Token metadata is mutable', true, devtoolsTypes.boolean)
     .addParam('additionalMinters', 'Comma-separated list of additional minters', undefined, devtoolsTypes.csv, true)
     .addOptionalParam(

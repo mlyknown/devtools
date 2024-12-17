@@ -23,7 +23,7 @@ contract MyOFT is OFT {
         _mint(to, amount);
     }
 
-    function redeem(uint256 amount) external {
+    function burn(uint256 amount) external {
         _burn(msg.sender, amount);
     }
 

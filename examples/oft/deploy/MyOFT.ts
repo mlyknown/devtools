@@ -36,8 +36,8 @@ const deploy: DeployFunction = async (hre) => {
     const { address } = await deploy(contractName, {
         from: deployer,
         args: [
-            'x-MyOFT', // name
-            'X', // symbol
+            'x-SGB', // name
+            'SGB', // symbol
             endpointV2Deployment.address, // LayerZero's EndpointV2 address
             deployer, // owner
         ],
