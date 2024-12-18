@@ -43,22 +43,27 @@ npx hardhat lz:solana:get-priority-fees --eid 40168 --address GfzM8nEV9MGNB8iLj8
 sh -c "$(curl -sSfL https://release.solana.com/v1.18.26/install)"
 solana program deploy --program-id target/deploy/oft-keypair.json target/verifiable/oft.so -u devnet --with-compute-unit-price 10000
 ```
-    Program Id: 4ieeS577mR26kpqPiKBp8DCMCXzv4taxhicnQePK1nWc
+    Program Id: 6EGbuSRuHSUicvmzGXNH2x6czrRuttFcbT3QP8HkwJPX
 ```
 sh -c "$(curl -sSfL https://release.solana.com/v1.17.31/install)"
 
-pnpm hardhat lz:oft-adapter:solana:create --eid 40168 --program-id 4ieeS577mR26kpqPiKBp8DCMCXzv4taxhicnQePK1nWc --mint 53E5G7pWXSyagv4yKggPz1e6ioseumjT6asgDLicjo3Q --token-program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+npx  hardhat lz:oft:solana:create --eid 40168 --program-id 6EGbuSRuHSUicvmzGXNH2x6czrRuttFcbT3QP8HkwJPX --additional-minters orvcuZyBLGz4eytes35MoS5NQfpLrRTREQ4FxRVLxjC
 
 cat ./deployments/solana-testnet/OFT.json
 vim ./layerzero.config.ts
 
 npx hardhat lz:deploy
-npx hardhat lz:oapp:init:solana --oapp-config layerzero.config.ts --solana-secret-key <your-key> --solana-program-id 4ieeS577mR26kpqPiKBp8DCMCXzv4taxhicnQePK1nWc
-npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts --solana-secret-key <your-key> --solana-program-id 4ieeS577mR26kpqPiKBp8DCMCXzv4taxhicnQePK1nWc
+npx hardhat lz:oapp:init:solana --oapp-config layerzero.config.ts --solana-secret-key <your-key> --solana-program-id 6EGbuSRuHSUicvmzGXNH2x6czrRuttFcbT3QP8HkwJPX
+npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts --solana-secret-key <your-key> --solana-program-id 6EGbuSRuHSUicvmzGXNH2x6czrRuttFcbT3QP8HkwJPX
 
-npx hardhat lz:oft:solana:send --amount 1000 --from-eid 40168 --to 0xa9D15c1c8B264c9082483BBf39Dafb2B844CCbA0 --to-eid 40161 --mint 53E5G7pWXSyagv4yKggPz1e6ioseumjT6asgDLicjo3Q --program-id 4ieeS577mR26kpqPiKBp8DCMCXzv4taxhicnQePK1nWc --escrow HrdS3ajax5jt1hUswKBVSQYVcEjdkEsD4o5VhHhpBaDj
+spl-token create-account Gr6kAdebBsUhwoZKNmfhqfwpFqkcuTqruXiu138NnCir
+spl-token mint Gr6kAdebBsUhwoZKNmfhqfwpFqkcuTqruXiu138NnCir 100 --multisig-signer ~/.config/solana/id.json --owner FbMx56QMpD7rktxhjG8dpcD4M7QwDFH4UiL4fQfuYedS
 
-npx hardhat --network avalanche-testnet send --dst-eid 40168 --amount 100000000000000000 --to  HYk2j9pQdNaf7yUcQgqvbKyBQ5cgw5TChJGAPvPVCvNH
+npx hardhat lz:oft:solana:send --amount 1000000000 --from-eid 40168 --to 0x7891E400C9e03C7D7B20A70082Ec6C1d7fcF12f1 --to-eid 40106 --mint Gr6kAdebBsUhwoZKNmfhqfwpFqkcuTqruXiu138NnCir --program-id 6EGbuSRuHSUicvmzGXNH2x6czrRuttFcbT3QP8HkwJPX --escrow HBjdnXAdLagJDnB8zeXAUZNVGCDJKwDbA82KFQyvKfaY
+
+npx hardhat --network avalanche-testnet send --dst-eid 40168 --amount 1000000000000000000 --to  HYk2j9pQdNaf7yUcQgqvbKyBQ5cgw5TChJGAPvPVCvNH
+## setauthority
+pnpm hardhat lz:oft:solana:setauthority --eid 40168 --mint Gr6kAdebBsUhwoZKNmfhqfwpFqkcuTqruXiu138NnCir --program-id 6EGbuSRuHSUicvmzGXNH2x6czrRuttFcbT3QP8HkwJPX --escrow HBjdnXAdLagJDnB8zeXAUZNVGCDJKwDbA82KFQyvKfaY --additional-minters HYk2j9pQdNaf7yUcQgqvbKyBQ5cgw5TChJGAPvPVCvNH
 
 # -------
 
